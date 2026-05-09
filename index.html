@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>母親節翻牌小遊戲</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <section class="hero">
+      <p class="eyebrow">A little game for Mom</p>
+      <h1>給媽媽的翻牌小遊戲</h1>
+      <p class="subtitle">25 秒內配對 16 張牌，翻到烏龜卡會有小驚喜 ❤️</p>
+    </section>
+
+    <section class="panel" aria-label="遊戲資訊">
+      <div class="stat">
+        <span class="label">剩餘時間</span>
+        <strong><span id="timer">25</span>s</strong>
+      </div>
+      <div class="stat">
+        <span class="label">分數</span>
+        <strong id="score">0</strong>
+      </div>
+      <div class="stat">
+        <span class="label">已配對</span>
+        <strong><span id="matched">0</span>/<span id="totalPairs">7</span></strong>
+      </div>
+      <button id="restartBtn" class="small-btn" type="button">重新開始</button>
+    </section>
+
+    <section class="hint" aria-live="polite">
+      <span id="message">點第一張牌後開始倒數。</span>
+    </section>
+
+    <section class="leaderboard" aria-label="成績排行榜">
+      <div class="leaderboard-title">
+        <span>🏆 前五名排行榜</span>
+        <small>通關後才會上榜</small>
+      </div>
+      <ol id="leaderboardList" class="leaderboard-list"></ol>
+    </section>
+
+    <section id="gameBoard" class="game-board" aria-label="翻牌遊戲區"></section>
+
+    <section id="winModal" class="modal hidden" aria-live="polite">
+      <div class="modal-card">
+        <div class="heart-burst">💐</div>
+        <h2>母親節快樂 ❤️</h2>
+        <p>妳成功通關了！</p>
+        <p class="final-score">最後分數：<strong id="finalScore">0</strong></p>
+        <div id="nicknameArea" class="nickname-area hidden">
+          <p id="rankMessage" class="rank-message">破紀錄了！輸入暱稱留下成績吧。</p>
+          <input id="nicknameInput" type="text" maxlength="12" placeholder="輸入暱稱" />
+          <button id="saveScoreBtn" class="primary-btn" type="button">儲存成績</button>
+        </div>
+        <div class="modal-rank">
+          <h3>目前排行榜</h3>
+          <ol id="modalLeaderboardList" class="leaderboard-list"></ol>
+        </div>
+        <p>謝謝妳一直以來的照顧與愛。母親節快樂。</p>
+        <button id="playAgainBtn" class="primary-btn" type="button">再玩一次</button>
+      </div>
+    </section>
+
+    <section id="loseModal" class="modal hidden" aria-live="polite">
+      <div class="modal-card">
+        <div class="heart-burst">🐢</div>
+        <h2>差一點點！</h2>
+        <p id="encourageText">再試一次一定可以！</p>
+        <p class="final-score">這次分數：<strong id="loseScore">0</strong></p>
+        <button id="tryAgainBtn" class="primary-btn" type="button">再試一次</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
